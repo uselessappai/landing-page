@@ -7,8 +7,9 @@ const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'waitlist.json');
 
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(__dirname)); // serve HTML/CSS/JS
 
+// Endpoint per aggiungere alla waitlist
 app.post('/waitlist', (req, res) => {
   const entry = req.body;
 
@@ -25,4 +26,5 @@ app.post('/waitlist', (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// Avvio server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

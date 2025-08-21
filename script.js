@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch(`${SERVER_URL}/waitlist`, {
+
+      const response = await fetch('https://landing-page-d086.onrender.com/waitlist', {
+0413d84 (Aggiornamento file locali)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -21,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
         confirmation.textContent = "You’ve been added to the waitlist! 🎉";
         confirmation.classList.add('show');
-
         form.reset();
 
         setTimeout(() => {
