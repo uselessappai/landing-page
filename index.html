@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Useless - Landing Page</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Piccolo CSS per conferma */
+    .confirmation {
+      opacity: 0;
+      transition: opacity 0.3s;
+      color: green;
+      margin-top: 10px;
+    }
+    .confirmation.show {
+      opacity: 1;
+    }
+    .confirmation.error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -41,10 +56,10 @@
         const data = Object.fromEntries(formData.entries());
 
         try {
-          const response = await fetch('https://landing-page-d086.onrender.com/waitlist', {
+          const response = await fetch('https://sheetdb.io/api/v1/hbtktc66picgv', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ data })
           });
 
           if (response.ok) {

@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('waitlistForm');
   const confirmation = document.getElementById('confirmation');
   const submitButton = form.querySelector('button[type="submit"]');
-  const SERVER_URL = 'https://landing-page-d086.onrender.com'; // URL del server Render
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -12,12 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-
-      const response = await fetch('https://landing-page-d086.onrender.com/waitlist', {
-0413d84 (Aggiornamento file locali)
+      const response = await fetch('https://sheetdb.io/api/v1/hbtktc66picgv', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ data })
       });
 
       if (response.ok) {
