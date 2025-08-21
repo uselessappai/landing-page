@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('waitlistForm');
   const confirmation = document.getElementById('confirmation');
   const submitButton = form.querySelector('button[type="submit"]');
+  const SERVER_URL = 'https://landing-page-d086.onrender.com'; // URL del server Render
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     submitButton.disabled = true;
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/waitlist', {
+      const response = await fetch(`${SERVER_URL}/waitlist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
